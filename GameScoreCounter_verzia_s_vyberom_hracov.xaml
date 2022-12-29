@@ -1,0 +1,69 @@
+﻿<Window x:Class="WpfApp4_GameScoreCounter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp4_GameScoreCounter"
+        mc:Ignorable="d"
+        Title="Počítadlo pre hru SCRABBLE" Height="413" Width="800">
+    <Window.Resources>
+        <Style x:Key="BorderStyle1" TargetType="{x:Type Border}"/>
+    </Window.Resources>
+    <Grid x:Name="pridat" Margin="0,0,0,0">
+        <Border BorderThickness="1" HorizontalAlignment="Center" Height="145" Margin="0,183,0,0" VerticalAlignment="Top" Width="758" CornerRadius="5,5,5,5" Opacity="0.2" ScrollViewer.VerticalScrollBarVisibility="Disabled" IsEnabled="False" Background="#FFA3C1CE" Visibility="Visible"/>
+
+        <Label x:Name="NaTahuJeHrac" Content="" HorizontalAlignment="Left" Margin="62,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.365" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="22" HorizontalContentAlignment="Right"/>
+        <Label x:Name="Hrac" Content="" HorizontalAlignment="Left" Margin="292,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.139,0.409" FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalContentAlignment="Center"/>
+        <Label HorizontalAlignment="Left" Margin="397,134,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="52"/>
+        <TextBox x:Name="HodnSlova" HorizontalAlignment="Left" Margin="615,75,0,0" VerticalAlignment="Top" Width="56" MaxLines="1" MaxLength="3" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Visibility="visible" AllowDrop="False" IsTabStop="False" RenderTransformOrigin="0.5,0.5" FontSize="24" FontWeight="Bold" AutoWordSelection="True">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Label x:Name="VitazHry" Content="" HorizontalAlignment="Center" Margin="0,27,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.365" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="22" Width="516" HorizontalContentAlignment="Center" Background="#FF2FDA0D" Height="44"/>
+        <Label x:Name="BodyZaSlovo" Content="" HorizontalAlignment="Left" Margin="395,70,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="22" FontWeight="Bold"/>
+        <Label x:Name="lblBodySpoluH1" Content="body spolu" HorizontalAlignment="Left" Margin="275,250,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" FontWeight="Bold"/>
+        <Label x:Name="StavHry" Content="Doterajší stav zápolenia:" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" FontWeight="Bold" FontSize="18" VerticalContentAlignment="Center" Margin="0,180,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center"/>
+        <Label x:Name="lblBodyZaSlovoH1" Content="body za slovo" HorizontalAlignment="Left" Margin="189,250,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" FontWeight="Bold"/>
+        <Label x:Name="PoradoveCislo" Content="" HorizontalAlignment="Left" Margin="455,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" FlowDirection="RightToLeft" Background="#FFEDCCCC" FontSize="24" FontWeight="Bold"/>
+        <Button x:Name="Pridat" Content="" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" Height="44" Width="600" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="22" Background="#FF2FDA0D" FontWeight="Bold"/>
+        <Label x:Name="lblBodySpoluH2" Content="body spolu" HorizontalAlignment="Left" Margin="517,250,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" FontWeight="Bold"/>
+        <Label x:Name="lblBodyZaSlovoH2" Content="body za slovo" HorizontalAlignment="Left" Margin="431,250,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" FontWeight="Bold"/>
+        <Button x:Name="Hrac1" Content="" HorizontalAlignment="Left" Margin="230,215,0,0" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Bold" FontSize="24" Background="#FFDDDDDD" Height="36" BorderThickness="1,1,1,1" Padding="5,1,5,1"/>
+        <Label x:Name="PriebeznySucet1" HorizontalAlignment="Left" Margin="277,276,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" Width="65" Content="0" Background="#FFEDCCCC" FontSize="24" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="HodnotaSlova1" HorizontalAlignment="Left" Margin="200,276,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" Width="65" Background="#FFEDCCCC" FontSize="24" Height="42" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="PriebeznySucet2" HorizontalAlignment="Left" Margin="520,276,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" Width="65" Content="0" Background="#FFEDCCCC" FontSize="24" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="HodnotaSlova2" HorizontalAlignment="Left" Margin="441,276,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" Width="65" Background="#FFEDCCCC" Height="42" FontWeight="Bold" FontSize="24" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Button x:Name="Hrac2" Content="" HorizontalAlignment="Left" Margin="474,215,0,0" VerticalAlignment="Top" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontWeight="Bold" FontSize="24" Padding="5,1,5,1" Height="36"/>
+        <Button x:Name="KoniecHry" Content="Koniec hry a vyhodnotenie priebežných výsledkov" HorizontalAlignment="Left" Margin="199,334,0,0" VerticalAlignment="Top" Height="29" Background="#FFEFE70D" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="390"/>
+        <Button x:Name="UkoncitPocitadlo" Content="Ukončiť počítadlo" HorizontalAlignment="Left" Margin="307,334,0,0" VerticalAlignment="Top" Height="29" Width="176" FontWeight="Bold" Background="Red" ScrollViewer.VerticalScrollBarVisibility="Disabled" Padding="1,1,1,1" ScrollViewer.CanContentScroll="True" FontSize="16"/>
+        <Label x:Name="Hrac1_click" HorizontalAlignment="Left" Margin="54,294,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" Width="65" Height="26" FlowDirection="RightToLeft" Visibility="Hidden"/>
+        <Label x:Name="Hrac2_click" HorizontalAlignment="Left" Margin="54,326,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" Width="65" Height="26" FlowDirection="RightToLeft" Visibility="Hidden"/>
+        <Label x:Name="RowXLSX" HorizontalAlignment="Left" Margin="54,356,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" Width="65" Height="26" FlowDirection="RightToLeft" Background="#FFEDCCCC" Visibility="Hidden"/>
+        <Label x:Name="ZacinajuciHrac" Content="" HorizontalAlignment="Left" Margin="43,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.365" Height="32" VerticalContentAlignment="Center" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" FontSize="18"/>
+        <Label x:Name="CisloTahu" HorizontalAlignment="Left" Margin="300,135,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" Background="#FFEDCCCC" FlowDirection="RightToLeft" Content=":číslo ťahu" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="24" Visibility="Hidden"/>
+        <Label x:Name="UkoncenieHry" Content="" HorizontalAlignment="Left" Margin="162,348,0,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Label x:Name="PomocnePocitadlo" Content="0" HorizontalAlignment="Left" Margin="118,259,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" Width="24" FlowDirection="RightToLeft" Background="#FFEDCCCC" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Visibility="Hidden"/>
+        <Label x:Name="lblZvolHracov" Content="" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.737,2.765" FontWeight="Bold" FontSize="18" VerticalContentAlignment="Center" Margin="0,331,0,0" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center"/>
+        <CheckBox x:Name="chkElzička" Content="Elzička" HorizontalAlignment="Left" Margin="295,82,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkTomáš" Content="Tomáš" HorizontalAlignment="Left" Margin="295,101,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkTomik" Content="Tomik" HorizontalAlignment="Left" Margin="295,120,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkZuzanka" Content="Zuzanka" HorizontalAlignment="Left" Margin="295,139,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkTimko" Content="Timko" HorizontalAlignment="Left" Margin="295,158,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Hrac_Copy" Content="" HorizontalAlignment="Left" Margin="629,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.139,0.409" FontSize="24" FontWeight="Bold" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" VerticalContentAlignment="Center"/>
+        <CheckBox x:Name="chkElzička_Copy" Content="Elzička" HorizontalAlignment="Left" Margin="632,82,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkTomáš_Copy" Content="Tomáš" HorizontalAlignment="Left" Margin="632,101,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkTomik_Copy" Content="Tomik" HorizontalAlignment="Left" Margin="632,120,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkZuzanka_Copy" Content="Zuzanka" HorizontalAlignment="Left" Margin="632,139,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chkTimko_Copy" Content="Timko" HorizontalAlignment="Left" Margin="632,158,0,0" VerticalAlignment="Top" Width="55"/>
+        <Label x:Name="NaTahuJeHrac_Copy" Content="" HorizontalAlignment="Left" Margin="400,72,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.508,0.365" VerticalContentAlignment="Center" FontWeight="Bold" FontSize="22" HorizontalContentAlignment="Right"/>
+        <Button x:Name="btnZaciatokHry" Content="Stlač pre spustenie počítadla" HorizontalAlignment="Center" Margin="0,334,1,0" VerticalAlignment="Top" Height="29" Background="#FFEFE70D" FontWeight="Bold" ScrollViewer.VerticalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" Width="300"/>
+
+    </Grid>
+</Window>
+	
