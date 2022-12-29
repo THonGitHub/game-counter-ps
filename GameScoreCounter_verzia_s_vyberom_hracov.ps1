@@ -50,11 +50,15 @@ Function GUIpoSpusteniSkriptu{
 #        $WorkSheetAktualnaHra[$r,$s].Value = ''
 #    }
 #}
+
+    # zistiť posledný riadok v zošite Hraci
+$PocetRiadkov = ZistitPoslednyRiadok $WorkSheetHraci 2 1
+
     # vynulovat tabulku v zosite Hraci
-For($r = 2; $r -le 6; $r++){
-    for($s = 2; $s -le 3; $s++){
-        $WorkSheetHraci[$r,$s].value = 0
-    }
+For($r = 2; $r -le ($PocetRiadkov); $r++){
+    #for($s = 2; $s -le 3; $s++){
+        $WorkSheetHraci[$r,2].value = 0
+    #}
 }
 
     # skryt
