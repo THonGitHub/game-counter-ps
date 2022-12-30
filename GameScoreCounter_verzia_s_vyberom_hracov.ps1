@@ -114,45 +114,54 @@ $var_PriebeznySucet2.Margin = '484,276,0,0'
 
     # Podla mien zvolenych hracov definovat Worksheet, do ktoreho sa budu zapisovat 
     # vysledky hry
-    # MamkaTati
+    # Mamka Tati
 if(($WorkSheetHraci[2,2].Value -eq 1) -and ($WorkSheetHraci[3,2].Value  -eq 1)){
     $SheetName = $WorkSheetHraci[2,1].value + $WorkSheetHraci[3,1].Value
-    if($ExcelPackage.Workbook.Worksheets[$SheetName].Cells){
+    Write-Host '120 SheetName'$SheetName 'existuje'
     $WorkSheetScoreCumul = $ExcelPackage.Workbook.Worksheets[$SheetName].Cells
-    }
-        # ak poradie zvolenych mien hracov na tlacitkach nezodpoveda poradiu mien v zosite
-        # prehodit mena na tlacitkach
-    if($var_Hrac1.content -ne $WorkSheetScoreCumul[1,2].value){
-       $var_Hrac1.content  = $WorkSheetScoreCumul[1,2].value
-       $var_Hrac2.content  = $WorkSheetScoreCumul[1,4].value
+}
+
+    # Mamka Tomik
+if((($WorkSheetHraci[2,2].Value -eq 1) -and ($WorkSheetHraci[4,2].Value  -eq 1))){ # -or (($WorkSheetHraci[4,2].Value -eq 1) -and ($WorkSheetHraci[2,3].Value  -eq 1))){
+    $SheetName = $WorkSheetHraci[2,1].value + $WorkSheetHraci[4,1].Value
+    Write-Host '127 SheetName'$SheetName
+    $WorkSheetScoreCumul = $ExcelPackage.Workbook.Worksheets[$SheetName].Cells
+
+    if(!$WorkSheetScoreCumul){
+        Write-Host '131 WorkSheetScoreCumul neexistuje'
     }
 }
-    # ZuzkaTai
-if((($WorkSheetHraci[5,2].Value -eq 1) -and ($WorkSheetHraci[3,2].Value  -eq 1))){
-    $SheetName = $WorkSheetHraci[5,1].value + $WorkSheetHraci[3,1].Value
+    # Mamka Zuzanka
+if((($WorkSheetHraci[2,2].Value -eq 1) -and ($WorkSheetHraci[5,2].Value  -eq 1))){ # -or (($WorkSheetHraci[4,2].Value -eq 1) -and ($WorkSheetHraci[2,3].Value  -eq 1))){
+    $SheetName = $WorkSheetHraci[2,1].value + $WorkSheetHraci[5,1].Value
+    Write-Host '137 SheetName'$SheetName
     $WorkSheetScoreCumul = $ExcelPackage.Workbook.Worksheets[$SheetName].Cells
-        # ak poradie zvolenych mien hracov na tlacitkach nezodpoveda poradiu mien v zosite
-        # prehodit mena na tlacitkach
-    if($var_Hrac1.content -ne $WorkSheetScoreCumul[1,2].value){
-       $var_Hrac1.content  = $WorkSheetScoreCumul[1,2].value
-       $var_Hrac2.content  = $WorkSheetScoreCumul[1,4].value
+
+    if(!$WorkSheetScoreCumul){
+        Write-Host '141 WorkSheetScoreCumul neexistuje'
+    }
+}
+    # Mamka Timko
+if((($WorkSheetHraci[2,2].Value -eq 1) -and ($WorkSheetHraci[6,2].Value  -eq 1))){ # -or (($WorkSheetHraci[4,2].Value -eq 1) -and ($WorkSheetHraci[2,3].Value  -eq 1))){
+    $SheetName = $WorkSheetHraci[2,1].value + $WorkSheetHraci[6,1].Value
+    Write-Host '147 SheetName'$SheetName 'existuje'
+    $WorkSheetScoreCumul = $ExcelPackage.Workbook.Worksheets[$SheetName].Cells
+
+    if(!$WorkSheetScoreCumul){
+        Write-Host '151 WorkSheetScoreCumul neexistuje'
     }
 }
 
-    # ak zvoleni hraci este spolu doteraz nehrali
-if((($WorkSheetHraci[2,2].Value -eq 1) -and ($WorkSheetHraci[4,2].Value  -eq 1))){ # -or (($WorkSheetHraci[4,2].Value -eq 1) -and ($WorkSheetHraci[2,3].Value  -eq 1))){
-    $SheetName = $WorkSheetHraci[2,1].value + $WorkSheetHraci[4,1].Value
-    Write-Host '141 SheetName'$SheetName
-        # mamkaTomik
-    if(!$WorkSheetScoreCumul){
-        VytvoritNovyZosit $SheetName
-        Write-Host '145 zosit'$SheetName 'bol vytvoreny'
-        $WorkSheetScoreCumul = $ExcelPackage.Workbook.Worksheets[$SheetName].Cells
-    }
-    else{
-        $WorkSheetScoreCumul = $ExcelPackage.Workbook.Worksheets[$SheetName].Cells
-    }
+
+
+    # ak poradie zvolenych mien hracov na tlacitkach nezodpoveda poradiu mien v zosite
+    # prehodit mena na tlacitkach
+if($var_Hrac1.content -ne $WorkSheetScoreCumul[1,2].value){
+    $var_Hrac1.content  = $WorkSheetScoreCumul[1,2].value
+    $var_Hrac2.content  = $WorkSheetScoreCumul[1,4].value
 }
+
+
 
     # zistit posledny riadok s datumom v zosite ScoreCumulatives 
 $PoslRiadokScCum = ZistitPoslednyRiadok $WorkSheetScoreCumul 3 1
@@ -201,11 +210,33 @@ $var_Hrac.Background = '#FFFAC4FD'    # pozadie pola s meno vitaza z predoslej h
 #$var_NaTahuJeHrac.margin = '62,100,0,0'
 }
 
+
 Function VytvoritNovyZosit($SheetName){
-    $GameFile = "C:\Users\th3882\OneDrive - AT&T Services, Inc\Documents\Programing\PowerShellTraining\Skripty\GUI\VisualStudio\4 - Game Counter\GameScoreCounter_verzia_s_vyberom_hracov - Copy.xlsx"
-    Close-ExcelPackage $ExcelPackage
+
+if(!$WorkSheetScoreCumul){
+    Write-Host '185 WorkSheetScoreCumul neexistuje'
+    #Close-ExcelPackage $ExcelPackage
     Copy-ExcelWorksheet -SourceWorkBook $GameFile -SourceWorksheet 'ZdrojKumul' -DestinationWorkbook $GameFile -DestinationWorksheet $SheetName
+    $GameFile = "C:\Users\th3882\OneDrive - AT&T Services, Inc\Documents\Programing\PowerShellTraining\Skripty\GUI\VisualStudio\4 - Game Counter\GameScoreCounter_verzia_s_vyberom_hracov - Copy.xlsx"
     $ExcelPackage = Open-ExcelPackage $GameFile # open excel package
+    $WorkSheetHraci = $ExcelPackage.Workbook.Worksheets['Hraci'].Cells
+    #$WorkSheetAktualnaHra = $ExcelPackage.Workbook.Worksheets['AktualnaHra'].Cells
+    $WorkSheetScoreCumul = $ExcelPackage.Workbook.Worksheets[$SheetName].Cells
+    DataDoBunky $WorkSheetScoreCumul 1 2 ($WorkSheetHraci[2,2].Value)
+    DataDoBunky $WorkSheetScoreCumul 1 4 ($WorkSheetHraci[4,2].Value)
+    
+    }
+else{
+Write-Host '207 WorkSheetScoreCumul existuje'
+    #$WorkSheetScoreCumul = $ExcelPackage.Workbook.Worksheets[$SheetName].Cells
+}
+    # ak poradie zvolenych mien hracov na tlacitkach nezodpoveda poradiu mien v zosite
+    # prehodit mena na tlacitkach
+if($var_Hrac1.content -ne $WorkSheetScoreCumul[1,2].value){
+    $var_Hrac1.content  = $WorkSheetScoreCumul[1,2].value
+    $var_Hrac2.content  = $WorkSheetScoreCumul[1,4].value
+}
+return $WorkSheetScoreCumul
 }
 
     # zistit v zosite cislo posledne pouziteho riadku,
@@ -631,7 +662,6 @@ $ExcelPackage = Open-ExcelPackage $GameFile # open excel package
 $WorkSheetHraci = $ExcelPackage.Workbook.Worksheets['Hraci'].Cells
 $WorkSheetAktualnaHra = $ExcelPackage.Workbook.Worksheets['AktualnaHra'].Cells
 $PocetHracov = (ZistitPoslednyRiadok $WorkSheetHraci 2 1) -1
-write-host '534 PocetHracov' $PocetHracov
 GUIpoSpusteniSkriptu
 
 <###################### ZACIATOK HRY ########################
